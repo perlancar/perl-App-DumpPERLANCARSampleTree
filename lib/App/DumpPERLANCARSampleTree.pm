@@ -20,6 +20,9 @@ $SPEC{dump_perlancar_sample_tree} = {
             req => 1,
             pos => 0,
         },
+        backend => {
+            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_tree}{args}{backend}{schema},
+        },
     },
     result_naked => 1,
     'cmdline.skip_format' => 1,
@@ -29,7 +32,10 @@ sub dump_perlancar_sample_tree {
 
     my %args = @_;
 
-    Tree::Dump::tdmp(gen_sample_tree(size => $args{size}));
+    Tree::Dump::tdmp(gen_sample_tree(
+        size => $args{size},
+        backend => $args{backend},
+    ));
 }
 
 1;
