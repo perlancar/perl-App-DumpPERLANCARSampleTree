@@ -7,13 +7,16 @@ use 5.010001;
 use strict;
 use warnings;
 
+use PERLANCAR::Tree::Examples qw(gen_sample_tree);
+
 our %SPEC;
 
-$SPEC{bencher_all} = {
+$SPEC{dump_perlancar_sample_tree} = {
     v => 1.1,
+    summary => 'Dump tree from PERLANCAR::Tree::Examples',
     args => {
         size => {
-            schema => ['str*'],
+            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_tree}{args}{size}{schema},
             req => 1,
             pos => 0,
         },
@@ -21,13 +24,12 @@ $SPEC{bencher_all} = {
     result_naked => 1,
     'cmdline.skip_format' => 1,
 };
-sub bencher_all {
-    require PERLANCAR::Tree::Examples;
+sub dump_perlancar_sample_tree {
     require Tree::Dump;
 
     my %args = @_;
 
-    Tree::Dump::tdmp(PERLANCAR::Tree::Examples::gen_sample_tree(size => $args{size}));
+    Tree::Dump::tdmp(gen_sample_tree(size => $args{size}));
 }
 
 1;
