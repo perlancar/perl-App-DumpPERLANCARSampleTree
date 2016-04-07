@@ -16,12 +16,12 @@ $SPEC{dump_perlancar_sample_tree} = {
     summary => 'Dump tree from PERLANCAR::Tree::Examples',
     args => {
         size => {
-            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_tree}{args}{size}{schema},
+            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_data}{args}{size}{schema},
             req => 1,
             pos => 0,
         },
         backend => {
-            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_tree}{args}{backend}{schema},
+            schema => $PERLANCAR::Tree::Examples::SPEC{gen_sample_data}{args}{backend}{schema},
         },
     },
     result_naked => 1,
