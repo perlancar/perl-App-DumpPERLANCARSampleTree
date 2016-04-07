@@ -7,7 +7,7 @@ use 5.010001;
 use strict;
 use warnings;
 
-use PERLANCAR::Tree::Examples qw(gen_sample_tree);
+use PERLANCAR::Tree::Examples qw(gen_sample_data);
 
 our %SPEC;
 
@@ -32,7 +32,7 @@ sub dump_perlancar_sample_tree {
 
     my %args = @_;
 
-    Tree::Dump::tdmp(gen_sample_tree(
+    Tree::Dump::tdmp(gen_sample_data(
         size => $args{size},
         backend => $args{backend},
     ));
